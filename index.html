@@ -1,38 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voltex Corporation – Powering Tomorrow</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Voltex Corporation — Powering Tomorrow</title>
+  <meta name="description" content="Voltex Corporation — high-performance CPUs, GPUs, chipsets and consumer tech." />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Voltex home">
+        <img id="logo" src="/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png" alt="Voltex logo" />
+        <div class="brand-text">
+          <div class="name">Voltex Corporation</div>
+          <div class="tagline">Engineering the Future of Power</div>
+        </div>
+      </a>
 
-<header>
-    <nav>
-        <div class="logo">VOLTeX</div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="investors.html">Investors</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section class="hero">
-    <div class="hero-text">
-        <h1>Powering Tomorrow. Engineering Beyond Limits.</h1>
-        <p>Voltex Corporation is redefining high-performance computing with breakthrough silicon engineering, next-gen mobile chipsets, and future-ready consumer technology.</p>
-        <a href="products.html" class="btn">Explore Products</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="silicon.html" class="nav-link">Silicon Labs</a>
+        <a href="research.html" class="nav-link">Research X</a>
+        <a href="investors.html" class="nav-link">Investors</a>
+        <a href="contact.html" class="btn btn-ghost">Contact</a>
+      </nav>
     </div>
-</section>
+  </header>
 
-<footer>
-    <p>© 2025 Voltex Corporation. All Rights Reserved.</p>
-</footer>
+  <!-- HERO / 3D LANDING -->
+  <section class="hero">
+    <div class="container hero-grid" id="hero">
+      <div class="hero-copy">
+        <h1 class="headline">Powering Tomorrow — <span class="accent">Engineering Beyond Limits</span></h1>
+        <p class="lead">Voltex designs vertically integrated silicon and consumer devices that push performance, efficiency, and intelligence to the edge.</p>
 
+        <div class="hero-cta-row">
+          <a href="products.html" class="btn btn-primary">Explore Products</a>
+          <button id="investBtn" class="btn btn-outline">Request Investor Kit</button>
+          <button id="buyNowHero" class="btn btn-neon">Buy Now</button>
+        </div>
+
+        <ul class="stats">
+          <li><strong>Founded</strong><span>2024</span></li>
+          <li><strong>HQ</strong><span>Bengaluru</span></li>
+          <li><strong>Focus</strong><span>Silicon • Devices • Gaming</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="scene" id="scene">
+          <div class="chip-card">
+            <div class="chip-badge">Flagship Chipset</div>
+            <h3>VortexX • Project Helios</h3>
+            <p class="muted">32 cores · AI tensor engines · Performance/Watt optimized</p>
+            <div class="chip-stats">
+              <div><strong>32</strong><span>cores</span></div>
+              <div><strong>AI</strong><span>tensor</span></div>
+              <div><strong>7nm</strong><span>class</span></div>
+            </div>
+            <img src="/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png" alt="VortexX visual" class="chip-art" />
+          </div>
+        </div>
+        <div class="parallax-layers">
+          <div class="layer layer-1"></div>
+          <div class="layer layer-2"></div>
+          <div class="layer layer-3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Product Ecosystem</h2>
+        <p class="muted">A cohesive line of processors, mobile SoCs, displays and next-gen entertainment hardware.</p>
+      </div>
+
+      <div class="cards-grid" id="productsGrid">
+        <!-- cards populated by JS for easy substitution -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="left">
+        <div class="logo-mini">VOLTeX</div>
+        <div class="copyright">© <span id="year"></span> Voltex Corporation — All Rights Reserved</div>
+      </div>
+      <div class="right muted">Built with ambition in Bengaluru</div>
+    </div>
+  </footer>
+
+  <!-- BUY NOW / MOCKUP MODAL -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <h3>Buy Now — Voltex Preorder</h3>
+      <p>You're preordering a limited-run sample of <strong>VortexX • Project Helios</strong> evaluation boards. This is a mock checkout for demonstration.</p>
+      <form id="buyForm" class="form">
+        <label>
+          Name
+          <input name="name" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" required />
+        </label>
+        <div class="row">
+          <button type="submit" class="btn btn-primary">Confirm Preorder</button>
+          <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
+        </div>
+        <small class="muted">No payment is collected — this is a demo mockup.</small>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,131 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Voltex Corporation — Powering Tomorrow</title>
-  <meta name="description" content="Voltex Corporation — high-performance CPUs, GPUs, chipsets and consumer tech." />
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltex Corporation</title>
+
+<style>
+    body {
+        margin: 0;
+        background: linear-gradient(135deg, #020202, #0a0f1f);
+        font-family: "Segoe UI", sans-serif;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 50px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+    nav a {
+        color: #00a8ff;
+        margin-left: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    nav a:hover {
+        color: #00eaff;
+        text-shadow: 0px 0px 10px #00eaff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: url('https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        position: relative;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        color: #00eaff;
+        text-shadow: 0 0 20px #00a8ff;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+        margin-top: 15px;
+        color: #d9faff;
+    }
+
+    .cta-btn {
+        margin-top: 30px;
+        padding: 15px 35px;
+        border: none;
+        background: #00a8ff;
+        color: black;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0px 0px 20px #00a8ff;
+    }
+    .cta-btn:hover {
+        background: #00d5ff;
+        box-shadow: 0px 0px 30px #00eaff;
+    }
+
+    /* PRODUCT CARDS */
+    .section {
+        padding: 80px 50px;
+        text-align: center;
+    }
+
+    .section h2 {
+        font-size: 3rem;
+        margin-bottom: 40px;
+        color: #00d5ff;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .card {
+        padding: 20px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(0,200,255,0.3);
+        border-radius: 15px;
+        transition: 0.3s;
+        backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 0px 20px #00eaff;
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 30px;
+        background: rgba(0,0,0,0.7);
+        text-align: center;
+        font-size: 0.9rem;
+        color: #88cfff;
+    }
+
+</style>
+
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Voltex home">
-        <!-- Using your uploaded logo file path -->
-        <img id="logo" src="/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png" alt="Voltex logo" />
-        <div class="brand-text">
-          <div class="name">Voltex Corporation</div>
-          <div class="tagline">Engineering the Future of Power</div>
-        </div>
-      </a>
 
-      <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="investors.html" class="nav-link">Investors</a>
-        <a href="contact.html" class="btn btn-ghost">Contact</a>
-      </nav>
+<nav>
+    <div class="logo"><b style="color:#00eaff;font-size:1.5rem;">VOLTeX</b></div>
+    <div>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </div>
-  </header>
+</nav>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1 class="headline">Powering Tomorrow — <span class="accent">Engineering Beyond Limits</span></h1>
-          <p class="lead">Voltex builds vertically integrated silicon and devices that push performance, efficiency and intelligence to the edge. High-performance chips, smart devices, and breakthrough research — built end to end.</p>
-
-          <div class="hero-ctas">
-            <a href="products.html" class="btn btn-primary">Explore Products</a>
-            <a href="investors.html" class="btn btn-outline">Investor Kit</a>
-            <button id="buyNowHero" class="btn btn-neon" aria-controls="modal">Buy Now</button>
-          </div>
-
-          <ul class="quick-stats" aria-hidden="true">
-            <li><strong>Founded</strong><span>2024</span></li>
-            <li><strong>HQ</strong><span>Bengaluru</span></li>
-            <li><strong>Focus</strong><span>Silicon • Devices • Gaming</span></li>
-          </ul>
-        </div>
-
-        <aside class="hero-visual" aria-hidden="true">
-          <div class="chip-card" id="heroCard">
-            <div class="chip-badge">Flagship Chipset</div>
-            <h3>VortexX — Project Helios</h3>
-            <p class="muted">32 cores · AI tensor engines · Performance/Watt optimized</p>
-            <img class="chip-art" src="https://images.unsplash.com/photo-1581091215367-07a3f1d9d2c7?auto=format&fit=crop&w=1200&q=60" alt="VortexX visual" loading="lazy">
-            <div class="chip-stats">
-              <div><strong>32</strong><span>cores</span></div>
-              <div><strong>AI</strong><span>tensor</span></div>
-              <div><strong>7nm</strong><span>class</span></div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Product Ecosystem</h2>
-          <p class="muted">Processors, mobile SoCs, displays and next-gen entertainment hardware.</p>
-        </div>
-
-        <div class="cards-grid" id="productsGrid" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-panel">
-          <h3>Want early access to Voltex prototypes?</h3>
-          <p class="muted">Join the mailing list for developer previews, whitepapers, and investor updates.</p>
-          <div class="cta-actions">
-            <input id="ctaEmail" type="email" placeholder="Your email" aria-label="Email for updates">
-            <button id="joinBtn" class="btn btn-primary">Join the list</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <div class="left">
-        <div class="logo-mini">VOLTeX</div>
-        <div class="copyright">© <span id="year"></span> Voltex Corporation</div>
-      </div>
-      <div class="right muted">Built with ambition in Bengaluru</div>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Powering the Future of Technology</h1>
+        <p>High-performance processors. Cutting-edge innovation. The next era of computing starts here.</p>
+        <button class="cta-btn">BUY NOW</button>
     </div>
-  </footer>
+</section>
 
-  <!-- MODAL (Buy Now - demo) -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-panel" role="document">
-      <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
-      <h3>Preorder (Demo)</h3>
-      <p>This is a demo preorder. No payment is collected.</p>
-      <form id="buyForm" class="form">
-        <label>
-          Name
-          <input name="name" required />
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" required />
-        </label>
-        <div class="row">
-          <button type="submit" class="btn btn-primary">Confirm Preorder</button>
-          <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
+<section class="section" id="products">
+    <h2>Flagship Products</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80">
+            <h3>VortexX CPU</h3>
+            <p>Next-gen silicon engineered for extreme performance.</p>
         </div>
-      </form>
-    </div>
-  </div>
 
-  <script src="script.js" defer></script>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1587202372775-e229f172b90c?auto=format&fit=crop&w=800&q=80">
+            <h3>NanoFlux Chipset</h3>
+            <p>Ultra-efficient mobile technology with cutting-edge AI acceleration.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=800&q=80">
+            <h3>Quantum Prototype</h3>
+            <p>A breakthrough in computational physics and quantum engineering.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2025 Voltex Corporation. All Rights Reserved.
+</footer>
+
 </body>
 </html>

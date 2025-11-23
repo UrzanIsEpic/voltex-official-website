@@ -1,92 +1,83 @@
-// core interactions: populate products, tilt interaction, hero parallax, modal / buy mockup
-
+// clean interactive behaviors: populate products, scroll reveal, modal, CTA
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// PRODUCT DATA (images use the uploaded logo as placeholder; replace with real product shots if you have them)
+// Product data (external Unsplash images). If you want them local, download to /assets/.
 const products = [
-  {title:'VortexX CPU', subtitle:'Project Helios — Desktop CPU', img:'/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png', tag:'Silicon Labs'},
+  {title:'VortexX CPU', subtitle:'Project Helios — Desktop CPU', img:'https://images.unsplash.com/photo-1581091215367-07a3f1d9d2c7?auto=format&fit=crop&w=1400&q=60', tag:'Silicon Labs'},
   {title:'TitanGPU', subtitle:'AI-accelerated GPU', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60', tag:'Silicon Labs'},
-  {title:'NanoFlux Mobile', subtitle:'Mobile SoC for Nova phones', img:'/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png', tag:'Voltex Mobile'},
+  {title:'NanoFlux Mobile', subtitle:'Mobile SoC for Nova phones', img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1400&q=60', tag:'Voltex Mobile'},
   {title:'VisionX TV', subtitle:'Neural-upscaling 8K TV', img:'https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=1400&q=60', tag:'Voltex Vision'},
-  {title:'IGNITE Console', subtitle:'CoreFusion APU console', img:'/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png', tag:'Gaming'},
+  {title:'IGNITE Console', subtitle:'CoreFusion APU console', img:'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1400&q=60', tag:'Gaming'},
 ];
 
 // mount product cards
-const grid = document.getElementById('productsGrid');
-products.forEach((p, i)=>{
-  const card = document.createElement('article');
-  card.className = 'card';
-  card.innerHTML = `
-    <img class="thumb" src="${p.img}" alt="${p.title} image" />
-    <h4>${p.title}</h4>
-    <div class="meta">${p.subtitle}</div>
-    <div class="cta-row">
-      <button class="btn btn-small" data-buy="${i}">Buy Now</button>
-      <a class="btn btn-small btn-outline" href="products.html">Learn →</a>
-    </div>
-  `;
-  // tilt effect (mouse)
-  card.addEventListener('mousemove', (evt)=>{
-    const rect = card.getBoundingClientRect();
-    const x = (evt.clientX - rect.left) / rect.width - 0.5;
-    const y = (evt.clientY - rect.top) / rect.height - 0.5;
-    const rx = (-y) * 8;
-    const ry = (x) * 12;
-    card.style.transform = `translateZ(20px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.01)`;
-    card.style.boxShadow = `0 40px 80px rgba(0,0,0,0.6), 0 12px 40px rgba(0,168,255,0.06)`;
+(function mountProducts(){
+  const grid = document.getElementById('productsGrid');
+  if(!grid) return;
+  products.forEach((p)=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <img class="thumb" src="${p.img}" alt="${p.title}" loading="lazy" />
+      <h4>${p.title}</h4>
+      <div class="meta">${p.subtitle}</div>
+      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <button class="btn btn-primary btn-small" data-title="${p.title}">Buy Now</button>
+        <a class="btn btn-outline btn-small" href="products.html">Learn →</a>
+      </div>
+    `;
+    grid.appendChild(card);
   });
-  card.addEventListener('mouseleave', ()=>{
-    card.style.transform = '';
-    card.style.boxShadow = '';
-  });
+})();
 
-  grid.appendChild(card);
-});
-
-// HERO PARALLAX (subtle) — mouse move changes scene rotation
-const scene = document.getElementById('scene');
-const hero = document.getElementById('hero');
-hero.addEventListener('mousemove', (e)=>{
-  const rect = hero.getBoundingClientRect();
-  const cx = rect.left + rect.width/2;
-  const cy = rect.top + rect.height/2;
-  const dx = (e.clientX - cx) / rect.width;
-  const dy = (e.clientY - cy) / rect.height;
-  const rx = dy * 6;
-  const ry = dx * -10;
-  scene.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
-});
-
-// BUY NOW modal behavior
+// Modal behaviour
 const modal = document.getElementById('modal');
-const buyNowBtns = document.querySelectorAll('[data-buy], #buyNowHero');
-buyNowBtns.forEach(b=>{
+const buyNowBtns = document.querySelectorAll('[data-title], #buyNowHero');
+buyNowBtns.forEach(b=> {
   b.addEventListener('click', ()=> openModal());
 });
-document.getElementById('modalClose').addEventListener('click', closeModal);
-document.getElementById('modalCancel').addEventListener('click', closeModal);
+document.getElementById('modalClose')?.addEventListener('click', closeModal);
+document.getElementById('modalCancel')?.addEventListener('click', closeModal);
 
 function openModal(){
-  modal.setAttribute('aria-hidden','false');
+  modal?.setAttribute('aria-hidden','false');
+  // focus first input
+  setTimeout(()=> modal?.querySelector('input')?.focus(), 120);
 }
 function closeModal(){
-  modal.setAttribute('aria-hidden','true');
+  modal?.setAttribute('aria-hidden','true');
 }
 
-// form submit demo
+// demo form submit
 document.getElementById('buyForm')?.addEventListener('submit',(e)=>{
   e.preventDefault();
-  const name = e.target.name.value || 'you';
-  alert(`Thanks ${name}! This is a demo preorder. We'll email you when sample boards are available.`);
+  const name = e.target.name.value || 'Friend';
+  alert(`Thanks ${name}! (Demo preorder received.)`);
   closeModal();
 });
 
-// INVESTOR kit button
-document.getElementById('investBtn')?.addEventListener('click', ()=>{
-  alert('Investor kit requested — this is a demo. Email investor@voltex.example for real requests.');
+// CTA join
+document.getElementById('joinBtn')?.addEventListener('click', ()=>{
+  const email = document.getElementById('ctaEmail')?.value || '';
+  if(!email || !email.includes('@')) return alert('Please enter a valid email.');
+  alert(`Thanks! ${email} — we'll keep you updated.`);
+  document.getElementById('ctaEmail').value = '';
 });
 
-// Accessible ESC close
+// lightweight scroll reveal for .card and .chip-card
+if('IntersectionObserver' in window){
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(ent=>{
+      if(ent.isIntersecting) ent.target.classList.add('reveal');
+    });
+  }, {threshold:0.08});
+  document.querySelectorAll('.card, .chip-card').forEach(el=> obs.observe(el));
+} else {
+  // fallback: just add reveal
+  document.querySelectorAll('.card, .chip-card').forEach(el=> el.classList.add('reveal'));
+}
+
+// keyboard ESC closes modal
 document.addEventListener('keydown', (e)=>{
   if(e.key === 'Escape') closeModal();
 });

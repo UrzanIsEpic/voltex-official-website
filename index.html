@@ -7,10 +7,11 @@
   <meta name="description" content="Voltex Corporation — high-performance CPUs, GPUs, chipsets and consumer tech." />
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg">
-  <header class="site-header">
+<body>
+  <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Voltex home">
+        <!-- Using your uploaded logo file path -->
         <img id="logo" src="/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png" alt="Voltex logo" />
         <div class="brand-text">
           <div class="name">Voltex Corporation</div>
@@ -18,91 +19,96 @@
         </div>
       </a>
 
-      <nav class="nav">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="index.html" class="nav-link active">Home</a>
         <a href="products.html" class="nav-link">Products</a>
-        <a href="silicon.html" class="nav-link">Silicon Labs</a>
-        <a href="research.html" class="nav-link">Research X</a>
+        <a href="about.html" class="nav-link">About</a>
         <a href="investors.html" class="nav-link">Investors</a>
         <a href="contact.html" class="btn btn-ghost">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO / 3D LANDING -->
-  <section class="hero">
-    <div class="container hero-grid" id="hero">
-      <div class="hero-copy">
-        <h1 class="headline">Powering Tomorrow — <span class="accent">Engineering Beyond Limits</span></h1>
-        <p class="lead">Voltex designs vertically integrated silicon and consumer devices that push performance, efficiency, and intelligence to the edge.</p>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 class="headline">Powering Tomorrow — <span class="accent">Engineering Beyond Limits</span></h1>
+          <p class="lead">Voltex builds vertically integrated silicon and devices that push performance, efficiency and intelligence to the edge. High-performance chips, smart devices, and breakthrough research — built end to end.</p>
 
-        <div class="hero-cta-row">
-          <a href="products.html" class="btn btn-primary">Explore Products</a>
-          <button id="investBtn" class="btn btn-outline">Request Investor Kit</button>
-          <button id="buyNowHero" class="btn btn-neon">Buy Now</button>
+          <div class="hero-ctas">
+            <a href="products.html" class="btn btn-primary">Explore Products</a>
+            <a href="investors.html" class="btn btn-outline">Investor Kit</a>
+            <button id="buyNowHero" class="btn btn-neon" aria-controls="modal">Buy Now</button>
+          </div>
+
+          <ul class="quick-stats" aria-hidden="true">
+            <li><strong>Founded</strong><span>2024</span></li>
+            <li><strong>HQ</strong><span>Bengaluru</span></li>
+            <li><strong>Focus</strong><span>Silicon • Devices • Gaming</span></li>
+          </ul>
         </div>
 
-        <ul class="stats">
-          <li><strong>Founded</strong><span>2024</span></li>
-          <li><strong>HQ</strong><span>Bengaluru</span></li>
-          <li><strong>Focus</strong><span>Silicon • Devices • Gaming</span></li>
-        </ul>
-      </div>
-
-      <div class="hero-visual" aria-hidden="true">
-        <div class="scene" id="scene">
-          <div class="chip-card">
+        <aside class="hero-visual" aria-hidden="true">
+          <div class="chip-card" id="heroCard">
             <div class="chip-badge">Flagship Chipset</div>
-            <h3>VortexX • Project Helios</h3>
+            <h3>VortexX — Project Helios</h3>
             <p class="muted">32 cores · AI tensor engines · Performance/Watt optimized</p>
+            <img class="chip-art" src="https://images.unsplash.com/photo-1581091215367-07a3f1d9d2c7?auto=format&fit=crop&w=1200&q=60" alt="VortexX visual" loading="lazy">
             <div class="chip-stats">
               <div><strong>32</strong><span>cores</span></div>
               <div><strong>AI</strong><span>tensor</span></div>
               <div><strong>7nm</strong><span>class</span></div>
             </div>
-            <img src="/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png" alt="VortexX visual" class="chip-art" />
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Product Ecosystem</h2>
+          <p class="muted">Processors, mobile SoCs, displays and next-gen entertainment hardware.</p>
+        </div>
+
+        <div class="cards-grid" id="productsGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-panel">
+          <h3>Want early access to Voltex prototypes?</h3>
+          <p class="muted">Join the mailing list for developer previews, whitepapers, and investor updates.</p>
+          <div class="cta-actions">
+            <input id="ctaEmail" type="email" placeholder="Your email" aria-label="Email for updates">
+            <button id="joinBtn" class="btn btn-primary">Join the list</button>
           </div>
         </div>
-        <div class="parallax-layers">
-          <div class="layer layer-1"></div>
-          <div class="layer layer-2"></div>
-          <div class="layer layer-3"></div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- PRODUCTS -->
-  <section id="products" class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Product Ecosystem</h2>
-        <p class="muted">A cohesive line of processors, mobile SoCs, displays and next-gen entertainment hardware.</p>
-      </div>
-
-      <div class="cards-grid" id="productsGrid">
-        <!-- cards populated by JS for easy substitution -->
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
       <div class="left">
         <div class="logo-mini">VOLTeX</div>
-        <div class="copyright">© <span id="year"></span> Voltex Corporation — All Rights Reserved</div>
+        <div class="copyright">© <span id="year"></span> Voltex Corporation</div>
       </div>
       <div class="right muted">Built with ambition in Bengaluru</div>
     </div>
   </footer>
 
-  <!-- BUY NOW / MOCKUP MODAL -->
+  <!-- MODAL (Buy Now - demo) -->
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-panel" role="document">
-      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-      <h3>Buy Now — Voltex Preorder</h3>
-      <p>You're preordering a limited-run sample of <strong>VortexX • Project Helios</strong> evaluation boards. This is a mock checkout for demonstration.</p>
+      <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+      <h3>Preorder (Demo)</h3>
+      <p>This is a demo preorder. No payment is collected.</p>
       <form id="buyForm" class="form">
         <label>
           Name
@@ -116,11 +122,10 @@
           <button type="submit" class="btn btn-primary">Confirm Preorder</button>
           <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
         </div>
-        <small class="muted">No payment is collected — this is a demo mockup.</small>
       </form>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

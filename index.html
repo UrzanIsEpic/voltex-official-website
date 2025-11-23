@@ -3,139 +3,140 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Voltex Corporation — Powering Tomorrow</title>
-<meta name="description" content="Voltex Corporation — high-performance CPUs, GPUs, chipsets and consumer tech." />
+<title>Voltex Corporation — Futuristic Redesign</title>
+<meta name="description" content="Voltex Corporation — neon, interactive, futuristic one-page site." />
 <style>
-  /* ---------- Base + theme ---------- */
+  /* ---------- Theme & Reset ---------- */
   :root{
-    --bg-0:#03060a;
-    --bg-1:#07121a;
-    --card:#07151c;
-    --muted:#98aebf;
-    --accent:#00A8FF;
-    --accent-2:#4FD1C5;
-    --neon: rgba(0,168,255,0.12);
+    --bg:#03060b;
+    --panel:#07151c;
+    --muted:#9fb0c1;
+    --neon1:#00A8FF;
+    --neon2:#7CFFDA;
+    --accent:#FFD166;
     --glass: rgba(255,255,255,0.03);
     --radius:14px;
     --max:1100px;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    --btn-depth: 18px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     color-scheme: dark;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0;background:linear-gradient(180deg,var(--bg-0),var(--bg-1));color:#e6eef6;line-height:1.45;-webkit-font-smoothing:antialiased}
+  body{
+    margin:0;
+    background:
+      radial-gradient(800px 400px at 10% 10%, rgba(0,168,255,0.04), transparent 8%),
+      radial-gradient(700px 350px at 90% 90%, rgba(127,255,218,0.03), transparent 8%),
+      linear-gradient(180deg,var(--bg),#07121a 60%);
+    color:#eaf3fb;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-size:16px;
+    line-height:1.45;
+  }
   .container{max-width:var(--max);margin:0 auto;padding:28px}
 
   /* ---------- Header ---------- */
-  .site-header{position:sticky;top:0;z-index:90;background:linear-gradient(180deg, rgba(2,6,11,0.6), rgba(2,6,11,0.2));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
-  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 28px}
+  header.site-header{
+    position:sticky;top:0;z-index:999;
+    background:linear-gradient(180deg, rgba(2,6,11,0.6), rgba(2,6,11,0.2));
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.03);
+  }
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 28px}
   .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-  .brand img{width:56px;height:56px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,0.05);box-shadow:0 10px 40px rgba(0,168,255,0.04)}
-  .brand-text .name{font-weight:800;letter-spacing:0.6px}
-  .tagline{font-size:13px;color:var(--muted)}
+  #logo{width:56px;height:56px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,0.04);box-shadow: 0 12px 40px rgba(0,168,255,0.06)}
+  .brand-text .name{font-weight:900;letter-spacing:0.6px}
+  .tagline{font-size:12px;color:var(--muted)}
 
-  /* nav */
-  .nav{display:flex;gap:12px;align-items:center}
-  .nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px;font-weight:600}
-  .nav a:hover,.nav a.active{color:#fff;background:rgba(255,255,255,0.02)}
-  .btn{padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
-  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#00101a;box-shadow:0 10px 28px rgba(0,168,255,0.08)}
-  .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
-  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+  nav.nav{display:flex;gap:10px;align-items:center}
+  .nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;font-weight:700}
+  .nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
 
-  /* ---------- Hero ---------- */
-  .hero{padding:36px 0 14px}
-  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
-  .headline{font-size:34px;margin:0 0 10px 0;line-height:1.02}
-  .headline .accent{color:var(--accent);text-shadow:0 8px 32px rgba(0,168,255,0.06)}
-  .lead{color:var(--muted);max-width:56ch}
-  .hero-ctas{margin-top:14px;display:flex;gap:12px;align-items:center}
-
-  /* ---------- CONTACT (above everything) ---------- */
-  .contact-panel{
-    margin-bottom:22px;
-    display:flex;
-    gap:16px;
-    align-items:center;
-    justify-content:space-between;
+  /* ---------- Contact (top panel) ---------- */
+  .contact-top{
+    margin:18px 0 6px;
+    display:flex;gap:12px;align-items:center;justify-content:space-between;
     background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-    border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+    border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);
   }
   .contact-left{display:flex;gap:12px;align-items:center}
-  .contact-left svg{width:44px;height:44px;flex:0 0 44px}
-  .contact-right{display:flex;gap:10px;align-items:center}
-  .contact-input{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;min-width:260px}
-  .contact-btn{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#00101a;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(0,168,255,0.08)}
+  .contact-left svg{width:46px;height:46px;flex:0 0 46px;color:var(--neon1)}
+  .contact-info .title{font-weight:800}
+  .contact-info .muted{color:var(--muted);font-size:13px}
+  .contact-actions{display:flex;gap:8px;align-items:center}
+  .contact-input{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;min-width:240px}
+  .contact-send{padding:10px 14px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#001018;font-weight:900;cursor:pointer;box-shadow:0 var(--btn-depth) 40px rgba(0,168,255,0.08)}
 
-  /* ---------- Products ---------- */
+  /* ---------- Hero ---------- */
+  .hero{padding:32px 0}
+  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+  .headline{font-size:36px;margin:0 0 12px 0;line-height:1.02}
+  .headline .neon{color:var(--neon1);text-shadow:0 10px 36px rgba(0,168,255,0.06)}
+  .lead{color:var(--muted);max-width:56ch}
+  .hero-ctas{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+
+  /* ---------- 3D / neon buttons ---------- */
+  .btn-3d{
+    display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:900;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+    color:var(--neon1);position:relative;overflow:visible;transform-style:preserve-3d;
+    transition:transform .16s cubic-bezier(.2,.9,.3,1), box-shadow .16s;
+  }
+  .btn-3d::before{
+    content:"";position:absolute;inset:0;border-radius:12px;padding:2px;background:linear-gradient(90deg,var(--neon1),var(--neon2));filter:blur(10px);opacity:0.25;z-index:-2;
+  }
+  .btn-3d .surface{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.03)}
+  .btn-3d:active{transform:translateY(4px) scale(.996)}
+  .btn-3d:hover{transform:translateY(-6px);box-shadow:0 30px 80px rgba(0,168,255,0.06)}
+
+  /* ---------- Products (SVG placeholders) ---------- */
   .section{padding:42px 0}
   .section-head{margin-bottom:18px}
   .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-  .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .22s cubic-bezier(.2,.9,.3,1),box-shadow .22s}
-  .card:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 12px 36px rgba(0,168,255,0.06)}
-  .thumb{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px}
-  .meta{color:var(--muted);font-size:14px}
-
-  /* ---------- Leadership (3D interactive cards) ---------- */
-  .leadership{padding:28px 0}
-  .lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-  .leader{
-    perspective:1000px;
-  }
-  .leader-card{
-    transform-style:preserve-3d;
-    transition:transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s;
+  .card{
     background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-    border-radius:14px;padding:16px;border:1px solid rgba(255,255,255,0.03);
-    display:flex;gap:12px;align-items:center;
+    padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+    display:flex;flex-direction:column;gap:12px;align-items:flex-start;justify-content:space-between;
+    transition:transform .22s, box-shadow .22s;
   }
-  .leader-card:hover{transform:translateY(-10px) rotateX(3deg) rotateY(-6deg);box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 14px 40px rgba(0,168,255,0.06)}
-  .leader-photo{width:78px;height:78px;border-radius:12px;object-fit:cover;border:1px solid rgba(255,255,255,0.05)}
-  .leader-meta .name{font-weight:800}
-  .leader-meta .role{color:var(--muted);font-weight:700;margin-top:4px}
-  .leader-meta .badge{display:inline-block;margin-top:8px;padding:6px 8px;border-radius:8px;background:rgba(0,168,255,0.08);color:var(--accent);font-weight:800;font-size:13px}
+  .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,0.55), 0 12px 36px rgba(0,168,255,0.06)}
+  .svg-box{width:100%;height:140px;border-radius:10px;background:linear-gradient(135deg, rgba(0,168,255,0.06), rgba(127,255,218,0.03));display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 14px 30px rgba(0,0,0,0.6))}
+  .card h4{margin:0}
+  .card p{color:var(--muted);margin:0}
+
+  /* ---------- Roles (must contain only the lines specified) ---------- */
+  .roles-block{
+    margin-top:22px;padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    font-weight:800;color:var(--neon2);font-size:16px;line-height:1.8;
+    text-align:left;white-space:pre-line;
+  }
 
   /* ---------- Achievements ---------- */
-  .ach{margin-top:18px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-  .ach ul{margin:0;padding-left:1.05rem;color:var(--muted)}
-  .ach li{margin:8px 0}
+  .achievements{margin-top:18px;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));color:var(--muted)}
+  .achievements ul{margin:0;padding-left:1.25rem}
+  .achievements li{margin:8px 0}
 
-  /* ---------- 3D neon buttons (SVG + animation) ---------- */
-  .neon-btn{
-    --g: linear-gradient(90deg,var(--accent),var(--accent-2));
-    padding:12px 18px;border-radius:12px;font-weight:800;border:none;background:transparent;color:var(--accent);
-    position:relative;cursor:pointer;overflow:visible;
-  }
-  .neon-btn::before{
-    content:"";position:absolute;inset:0;border-radius:12px;padding:2px;
-    background:var(--g);filter:blur(10px);opacity:0.25;z-index:-2;transform:translateZ(-1px);
-  }
-  .neon-btn .inner{
-    display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.03)
-  }
-  .neon-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 20px 60px rgba(0,168,255,0.08)}
+  /* ---------- Footer ---------- */
+  footer.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:18px 0;margin-top:28px}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:13px}
 
   /* ---------- Modal ---------- */
-  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.8));z-index:120}
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.8));z-index:200}
   .modal[aria-hidden="false"]{display:flex}
   .modal-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;max-width:520px;width:92%;border:1px solid rgba(255,255,255,0.04)}
   .modal-close{position:absolute;right:18px;top:18px;border:none;background:transparent;color:var(--muted);font-size:20px}
 
-  /* reveal */
-  .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
-  .reveal.visible{opacity:1;transform:none}
-
-  /* footer */
-  .site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:18px 0;margin-top:28px}
-  .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:13px}
-
-  /* responsive */
+  /* ---------- Utility & responsive ---------- */
+  .muted{color:var(--muted)}
+  .row{display:flex;gap:8px;align-items:center}
   @media (max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:18px}
     .header-inner{flex-direction:column;align-items:flex-start}
-    .nav{flex-wrap:wrap;gap:8px}
-    .lead-grid{grid-template-columns:1fr}
-    .contact-panel{flex-direction:column;align-items:stretch}
+    .nav{flex-wrap:wrap}
+    .cards-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
   }
 </style>
 </head>
@@ -143,7 +144,6 @@
   <header class="site-header" role="banner">
     <div class="header-inner container">
       <a class="brand" href="index.html" aria-label="Voltex home">
-        <!-- official logo (your uploaded file path) -->
         <img id="logo" src="/mnt/data/5982c694-ce3a-4c7a-a6df-1815751eaac5.png" alt="Voltex logo">
         <div class="brand-text">
           <div class="name">Voltex Corporation</div>
@@ -152,196 +152,165 @@
       </a>
 
       <nav class="nav" role="navigation" aria-label="Main nav">
-        <a class="nav-link active" href="#hero">Home</a>
+        <a class="nav-link" href="#hero">Home</a>
         <a class="nav-link" href="#products">Products</a>
-        <a class="nav-link" href="#roles">Team</a>
+        <a class="nav-link" href="#roles">Roles</a>
         <a class="nav-link" href="#achievements">Achievements</a>
-        <a class="nav-link" href="#contact" aria-current="false">Contact</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero container" id="hero" aria-labelledby="hero-title">
+  <main class="container">
+    <!-- CONTACT (above everything) -->
+    <section id="contact" class="contact-top" aria-label="Contact us panel">
+      <div class="contact-left">
+        <!-- SVG icon -->
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 4h16v16H4z" fill="currentColor" opacity="0.06"/><path d="M3 6.5V18a2 2 0 0 0 2 2h14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="contact-info">
+          <div class="title">Contact Us</div>
+          <div class="muted">Questions, press or partnerships — reach out</div>
+        </div>
+      </div>
+
+      <div class="contact-actions">
+        <input id="contactEmail" class="contact-input" type="email" placeholder="your@email.com" aria-label="Email for contact">
+        <button id="contactSend" class="contact-send">Send</button>
+      </div>
+    </section>
+
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero-grid">
         <div>
-          <h1 id="hero-title" class="headline">Powering Tomorrow — <span class="accent">Engineering Beyond Limits</span></h1>
-          <p class="lead">Voltex builds vertically integrated silicon and products that push performance, efficiency and intelligence to the edge.</p>
+          <h1 id="hero-title" class="headline">Powering Tomorrow — <span class="neon">Engineering Beyond Limits</span></h1>
+          <p class="lead">Voltex crafts high-performance silicon and elegant devices — built faster, cooler, and smarter.</p>
 
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="#products">Explore Products</a>
-            <button class="btn btn-outline" id="kitBtn">Request Investor Kit</button>
-            <button class="neon-btn" id="heroBuy"><span class="inner">
-              <!-- SVG lightning icon -->
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"></path>
-              </svg>
-              Buy Now
-            </span></button>
+            <button class="btn-3d" id="exploreBtn"><span class="surface">Explore Products</span></button>
+            <button class="btn-3d" id="kitBtn"><span class="surface">Investor Kit</span></button>
+            <button class="btn-3d" id="buyBtn"><span class="surface">Buy Now</span></button>
           </div>
-
-          <ul class="quick-stats" aria-hidden="true">
-            <li><strong>Founded</strong><span>2024</span></li>
-            <li><strong>HQ</strong><span>Bengaluru</span></li>
-            <li><strong>Focus</strong><span>Silicon • Devices • Gaming</span></li>
-          </ul>
         </div>
 
-        <!-- hero visual (chip + image) -->
         <aside class="hero-visual" aria-hidden="true">
-          <div class="chip-card reveal" id="chipCard">
-            <div class="chip-badge">Flagship Chipset</div>
-            <h3>VortexX — Project Helios</h3>
-            <p class="muted">32 cores · AI tensor engines · Performance/Watt optimized</p>
-            <img class="chip-art" src="https://images.unsplash.com/photo-1581091215367-07a3f1d9d2c7?auto=format&fit=crop&w=1200&q=60" alt="VortexX">
-            <div class="chip-stats">
-              <div><strong>32</strong><span>cores</span></div>
-              <div><strong>AI</strong><span>tensor</span></div>
-              <div><strong>7nm</strong><span>class</span></div>
-            </div>
+          <!-- stylized chip SVG -->
+          <div style="width:100%;max-width:420px;margin:auto;">
+            <svg viewBox="0 0 600 400" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00A8FF"/><stop offset="1" stop-color="#7CFFDA"/></linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="12" result="blur"/></filter>
+              </defs>
+              <rect x="40" y="40" rx="18" ry="18" width="520" height="320" fill="#07121a" stroke="url(#g1)" stroke-width="2" />
+              <g transform="translate(140,90)">
+                <rect width="320" height="220" rx="10" fill="#08171f" stroke="rgba(255,255,255,0.03)"/>
+                <text x="160" y="120" fill="url(#g1)" font-size="26" font-weight="800" text-anchor="middle" font-family="Inter, sans-serif">VortexX · Project Helios</text>
+              </g>
+            </svg>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- CONTACT (above products as requested) -->
-    <section id="contact" class="container">
-      <div class="contact-panel reveal" role="region" aria-label="Contact us panel">
-        <div class="contact-left">
-          <!-- SVG mail icon -->
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
-          </svg>
-          <div>
-            <div style="font-weight:800">Contact Us</div>
-            <div class="muted">Questions, press or partnerships — reach out</div>
-          </div>
-        </div>
-
-        <div class="contact-right">
-          <input id="contactEmail" class="contact-input" type="email" placeholder="your@email.com" aria-label="Contact email">
-          <button id="contactSend" class="contact-btn">Send</button>
-        </div>
-      </div>
-    </section>
-
     <!-- PRODUCTS -->
-    <section id="products" class="section container">
+    <section id="products" class="section" aria-labelledby="products-title">
       <div class="section-head">
-        <h2>Flagship Products</h2>
-        <p class="muted">A cohesive line of processors, mobile SoCs, displays and next-gen entertainment hardware.</p>
+        <h2 id="products-title">Flagship Products</h2>
+        <p class="muted">Bright, efficient, and future-forward — our product line (icons only, no photos).</p>
       </div>
 
       <div class="cards-grid" id="productsGrid" aria-live="polite"></div>
     </section>
 
-    <!-- ROLES / LEADERSHIP -->
-    <section id="roles" class="leadership container">
-      <h2 style="margin-bottom:12px">Company Leadership & Roles</h2>
-      <div class="lead-grid" id="leadGrid">
-        <!-- leader cards populated by JS -->
-      </div>
+    <!-- ROLES - EXACT LINES ONLY -->
+    <section id="roles" class="roles-block" aria-label="Company roles">
+Aryan kumar - CEO, Founder, ShareHolder
+Aman kumar - Chairman
+Darsh kumar - Managing director
+Atharav Chauhan - Janitor
     </section>
 
     <!-- ACHIEVEMENTS -->
-    <section id="achievements" class="container">
-      <div class="ach reveal">
-        <h3 style="margin-top:0">Achievements</h3>
-        <ul id="achList">
-          <!-- populated by JS -->
-        </ul>
-      </div>
+    <section id="achievements" class="achievements" aria-labelledby="ach-title">
+      <h3 id="ach-title" style="margin-top:0">Achievements</h3>
+      <ul id="achList">
+        <!-- JS populates -->
+      </ul>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="left">
-        <div class="logo-mini" style="font-weight:900;color:var(--accent)">VOLTeX</div>
-        <div style="font-size:13px;color:var(--muted)">© <span id="year"></span> Voltex Corporation</div>
+        <div style="font-weight:900;color:var(--neon1)">VOLTeX</div>
+        <div class="muted">© <span id="year"></span> Voltex Corporation</div>
       </div>
       <div class="right muted">Built with ambition in Bengaluru</div>
     </div>
   </footer>
 
-  <!-- Modal (Buy demo) -->
+  <!-- Modal (demo buy) -->
   <div id="modal" class="modal" aria-hidden="true" role="dialog">
     <div class="modal-panel" role="document">
       <button class="modal-close" id="modalClose" aria-label="Close">×</button>
       <h3>Preorder (Demo)</h3>
-      <p>This is a demo preorder. No payment is collected.</p>
+      <p>No payment is collected — demo only.</p>
       <form id="buyForm">
         <label style="display:block;margin-bottom:8px">Name <input name="name" required style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></label>
         <label style="display:block;margin-bottom:12px">Email <input name="email" type="email" required style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></label>
-        <div style="display:flex;gap:8px"><button class="btn btn-primary" type="submit">Confirm Preorder</button><button class="btn btn-ghost" id="modalCancel" type="button">Cancel</button></div>
+        <div style="display:flex;gap:8px"><button class="btn-3d" type="submit"><span class="surface">Confirm</span></button><button class="btn-3d" id="modalCancel" type="button"><span class="surface">Cancel</span></button></div>
       </form>
     </div>
   </div>
 
 <script>
-/* ----------------- JS: populate content + interactions ----------------- */
+/* ---------- Interactions & content population ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// PRODUCTS (high-quality Unsplash images)
+/* PRODUCTS — SVG icons only (no photos) */
 const products = [
-  {title:'VortexX CPU', subtitle:'Project Helios — Desktop CPU', img:'https://images.unsplash.com/photo-1581091215367-07a3f1d9d2c7?auto=format&fit=crop&w=1400&q=60'},
-  {title:'TitanGPU', subtitle:'AI-accelerated GPU', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60'},
-  {title:'NanoFlux Mobile', subtitle:'Mobile SoC for Nova phones', img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1400&q=60'},
-  {title:'VisionX TV', subtitle:'Neural-upscaling 8K TV', img:'https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=1400&q=60'},
-  {title:'IGNITE Console', subtitle:'CoreFusion APU console', img:'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1400&q=60'}
+  {title:'VortexX CPU', desc:'High-throughput desktop CPU, optimized for AI.' , icon:'cpu'},
+  {title:'TitanGPU', desc:'AI-accelerated graphics engine with tensor cores', icon:'gpu'},
+  {title:'NanoFlux SoC', desc:'Power-efficient mobile SoC for Nova series', icon:'chip'},
+  {title:'VisionX Display', desc:'Neural-upscaling display engine, 8K ready', icon:'display'},
+  {title:'IGNITE Console', desc:'Next-gen console with CoreFusion APU', icon:'gamepad'}
 ];
 
-// MOUNT PRODUCT CARDS
-const prodGrid = document.getElementById('productsGrid');
-products.forEach((p,i)=>{
-  const el = document.createElement('article');
-  el.className = 'card reveal';
-  el.innerHTML = `
-    <img class="thumb" src="${p.img}" alt="${p.title}" loading="lazy">
-    <h4>${p.title}</h4>
-    <div class="meta">${p.subtitle}</div>
-    <div style="margin-top:12px;display:flex;gap:8px;justify-content:space-between;align-items:center">
-      <button class="neon-btn buy" data-title="${p.title}"><span class="inner">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 3h18v2H3zM6 7h12l-1 9H7z" fill="currentColor"/></svg>
-        Buy
-      </span></button>
-      <a class="btn btn-outline" href="products.html">Learn →</a>
-    </div>
-  `;
-  prodGrid.appendChild(el);
-});
+const iconSVG = {
+  cpu: `<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="100" rx="12" fill="rgba(255,255,255,0.02)" stroke="url(#g1)"/></svg>`,
+  gpu: `<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="12" width="104" height="76" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(127,255,218,0.12)"/></svg>`,
+  chip: `<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="50" r="30" fill="rgba(0,168,255,0.06)" stroke="rgba(0,168,255,0.16)"/></svg>`,
+  display:`<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="108" height="72" rx="8" fill="rgba(127,255,218,0.03)" stroke="rgba(0,168,255,0.08)"/></svg>`,
+  gamepad:`<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="18" width="100" height="60" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(0,168,255,0.08)"/></svg>`
+};
 
-// LEADERSHIP (use your names; photos are Unsplash placeholders — replace with repo assets/logo if you want)
-const leaders = [
-  {name:'Sir Aryan', role:'Founder, CEO & Primary Shareholder}
-  {name:'Aman', role:'Chairman'}
-  {name:'Darsh', role:'Managing Director'}
-  {name:'Atharav', role:'janitor'}
-
-const leadGrid = document.getElementById('leadGrid');
-leaders.forEach(ld=>{
-  const w = document.createElement('div');
-  w.className = 'leader';
-  w.innerHTML = `
-    <div class="leader-card reveal" tabindex="0">
-      <img class="leader-photo" src="${ld.photo}" alt="${ld.name}">
-      <div class="leader-meta">
-        <div class="name">${ld.name}</div>
-        <div class="role">${ld.role}</div>
-        <div class="badge">${ld.badge}</div>
+(function mountProducts(){
+  const grid = document.getElementById('productsGrid');
+  products.forEach(p=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="svg-box" aria-hidden="true">${iconSVG[p.icon] || iconSVG.chip}</div>
+      <div>
+        <h4>${p.title}</h4>
+        <p class="muted">${p.desc}</p>
       </div>
-    </div>
-  `;
-  leadGrid.appendChild(w);
-});
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button class="btn-3d buyBtn"><span class="surface">Buy</span></button>
+        <button class="btn-3d" onclick="alert('Learn more (demo)')"><span class="surface">Learn</span></button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+})();
 
-// ACHIEVEMENTS list
+/* Achievements population */
 const achievements = [
-  "Designed initial VortexX architecture (Project Helios)",
-  "Built NanoFlux mobile SoC prototype",
-  "Completed IGNITE console design prototype",
-  "Won 2 school-level tech Olympiad medals",
-  "Established Research X concept and roadmap"
+  'Designed initial VortexX microarchitecture',
+  'Developed NanoFlux power manager prototype',
+  'Completed IGNITE console engineering mockup',
+  'Won two school-level Olympiad medals',
+  'Laid foundation for Research X roadmap'
 ];
 const achList = document.getElementById('achList');
 achievements.forEach(a=>{
@@ -350,59 +319,40 @@ achievements.forEach(a=>{
   achList.appendChild(li);
 });
 
-// REVEAL on scroll (lightweight)
-if('IntersectionObserver' in window){
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); }
-    });
-  }, {threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
-} else { document.querySelectorAll('.reveal').forEach(el=> el.classList.add('visible')); }
-
-// 3D-ish tilt on leader cards
-document.querySelectorAll('.leader-card').forEach(card=>{
-  card.addEventListener('mousemove',(e)=>{
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left)/r.width - 0.5;
-    const y = (e.clientY - r.top)/r.height - 0.5;
-    const rx = (-y)*6;
-    const ry = (x)*10;
-    card.style.transform = `translateZ(8px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-  });
-  card.addEventListener('mouseleave',()=> card.style.transform = '');
-  card.addEventListener('focus', ()=> card.classList.add('focused'));
-  card.addEventListener('blur', ()=> card.classList.remove('focused'));
-});
-
-// CONTACT interactions (demo)
-document.getElementById('contactSend').addEventListener('click', ()=>{
-  const v = document.getElementById('contactEmail').value.trim();
-  if(!v || !v.includes('@')) return alert('Please enter a valid email.');
-  alert(`Thanks — we'll reach out to ${v}. (Demo)`);
-  document.getElementById('contactEmail').value = '';
-});
-
-// BUY modal behavior
+/* Modal & modal triggers */
 const modal = document.getElementById('modal');
-const openBtns = document.querySelectorAll('.buy, #heroBuy');
-openBtns.forEach(b=> b.addEventListener('click', ()=> openModal()));
+const buyButtons = document.querySelectorAll('.buyBtn, #buyBtn');
+buyButtons.forEach(b=> b.addEventListener('click', openModal));
 document.getElementById('modalClose').addEventListener('click', closeModal);
 document.getElementById('modalCancel').addEventListener('click', closeModal);
 document.getElementById('buyForm').addEventListener('submit', (e)=>{
   e.preventDefault();
-  const name = e.target.name.value || 'Friend';
-  alert(`Thanks ${name}! (Demo preorder registered)`);
+  alert('Demo preorder received — thanks!');
   closeModal();
 });
 function openModal(){ modal.setAttribute('aria-hidden','false'); modal.querySelector('input')?.focus(); }
 function closeModal(){ modal.setAttribute('aria-hidden','true'); }
 
-// small niceties: kitBtn
-document.getElementById('kitBtn').addEventListener('click', ()=> alert('Investor kit requested — demo. Email investor@voltex.example for real requests.'));
+/* Contact demo */
+document.getElementById('contactSend').addEventListener('click', ()=>{
+  const v = document.getElementById('contactEmail').value.trim();
+  if(!v || !v.includes('@')) return alert('Please enter a valid email.');
+  alert(`Thanks — we'll reach out to ${v} (demo).`);
+  document.getElementById('contactEmail').value = '';
+});
 
-// accessibility: ESC closes
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+/* small reveal animation */
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting) en.target.classList.add('visible');
+    });
+  }, {threshold:0.06});
+  document.querySelectorAll('.card, .chip-card, .contact-top').forEach(el=> io.observe(el));
+}
+
+/* keyboard ESC close modal */
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>

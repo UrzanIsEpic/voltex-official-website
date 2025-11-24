@@ -1,3 +1,3 @@
-https://urzanisepic.github.io/voltex-official-website/ 
+https://aryankumar60197.wixsite.com/voltex-corporation
 Website link
 
